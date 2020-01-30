@@ -1,0 +1,9 @@
+/*
+    After menu-item we have to create directory items
+*/
+.directory-menu {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
