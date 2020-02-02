@@ -1,7 +1,7 @@
 /* After designing the homepage
     next step is to design the menu-items so that everything is divided and and cann be manages easily*/ 
 import React from 'react';
-import '../menu-items/menu-items.styles.scss';
+import '../menu-items/menu-item.styles.scss';
 
 const MenuItem = ({title}) => (
     <div className = "menu-item">
