@@ -13,7 +13,7 @@ class Directory extends React.Component  {
                   imageUrl:'https://i.ibb.co/px2tCc3/jackets.png',
                 //   imageUrl: 'https://ibb.co/kBCs9NT',
                   id: 1,
-                  linkUrl: 'shop/clothing'
+                  linkUrl: 'clothing'
                 },
                 {
                   title: 'electronics',
@@ -48,9 +48,11 @@ class Directory extends React.Component  {
         return(
             <div className = "directory-menu">
                 {
-                    this.state.sections.map(({title, imageUrl, id, size}) => (
-                        <MenuItem key = {id} title = {title} imageUrl = {imageUrl} size = {size}/>
+                    this.state.sections.map(({ id, ...otherSectionsProps}) => (
+                        <MenuItem key = {id} {...otherSectionsProps}/>
                     ))
+                    // here ...otherSectionprops means other properties of section it is used because for the easy use
+                    // this can be used [...otherSectionsProps] where means if title = {title} size = {size} imageUrl = {imageUrl} at that time these can be used
                 }
             </div>
         )
