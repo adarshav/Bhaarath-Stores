@@ -3,22 +3,27 @@ import { Route } from 'react-router-dom';
 
 
 import HomePage from './pages/homepage/homepage.component';
+import ShopPage from './pages/shop/shop.component';
 
-const Clothing = (props) => {
-  console.log(props);
-  return(
-    <div>
-      <h1>You are inside clothing module</h1>
-    </div>
-  )
-}
+// Only for demostration purpose
+
+// const Clothing = (props) => {
+//   console.log(props);
+//   return(
+//     <div>
+//       <h1>You are inside clothing module</h1>
+//     </div>
+//   )
+// }
 
 function App() {
   return (
     <div>
         {/* <HomePage /> */}
         <Route exact path = '/' component = {HomePage}/>
-        <Route  path = '/clothing' component = {Clothing}/>;
+        <Route  path = '/shop' component = {ShopPage} />
+        {/* <Route  path = '/clothing' component = {Clothing}/>; */}
+
         {/* if there is a doubt between react router go to react-router-learning[E:code/React] */}
     </div>
   );
