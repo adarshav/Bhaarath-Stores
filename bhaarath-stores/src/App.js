@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import './App.css';
@@ -73,7 +73,11 @@ class App extends React.Component {
           
           <Route exact path = '/' component = {HomePage}/>
           <Route  path = '/shop' component = {ShopPage} />
-          <Route  path = '/signin' component = {SignInAndSignUp}/>
+          {/* older one before implementing redux */}
+          {/* <Route exact path = '/signin' component = {SignInAndSignUp}/> */}
+
+          {/* instead of component in Route use render which is a function  */}
+          <Route exact path = '/signin' render = {() => this.props.currentUser ? ( <Redirect to = '/' /> ) : (<SignInAndSignUp />) }/>
           {/* <Route  path = '/clothing' component = {Clothing}/>; */}
   
           {/* if there is a doubt between react router go to react-router-learning[E:code/React] */}
@@ -83,11 +87,19 @@ class App extends React.Component {
   
 }
 
+// this is to have an access of currentUser and redirect to another page once he successfully logs in.
+const mapStateToProps = state => ({
+  currentUser:state.user.currentUser
+})
+
+//it is a function and it gets dispatch property and setCurrentUser is a function where dispatch in a second line tells to the redux whatever object u r passing to me is an action which triggers to rootReducer
 const mapDispatchToProps = dispatch => ({
   newSetCurrentUser:user => dispatch(setCurrentUser(user))
 })
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
 /*
   while using react router dom first we have to install the package[npm install react-router-dom]
   react-router component has three properties history, match, location and these 3 can b accessed using withRouter function
  */
+
+//  After implementing redux to the application, Here there is a problem 1.if user signs in the user will be still in sign-in page which may cause an error so that if the user logs in he should be redirected to shop page. That will be seen now, If we want to make the mentioned we should have an access to the currentUser which is in rootReducer that objective can be achieved by mapStateToProps so that we have the access of currentUser who have logged in.
