@@ -1,8 +1,10 @@
 import CartActionTypes from './cart-types';
+import addItemToCart from './cart-utils'
 
 //basically the initial state of cartDropdown is hidden and its value is true 
 const INITIAL_STATE = {
-    hidden: true
+    hidden: true, 
+    cartItems: []
 }
 
 // here cartReducer is toggling the hidden state of cartDropdown
@@ -12,6 +14,11 @@ const cartReducer = (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 hidden:!state.hidden
+            }
+        case CartActionTypes.ADD_ITEM:
+            return {
+                ...state,
+                cartItems: addItemToCart(state.cartItems, action.payload)
             }
         default:
             return state;
