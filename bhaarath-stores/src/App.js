@@ -5,8 +5,10 @@ import { connect } from 'react-redux';
 import './App.css';
 import HomePage from './pages/homepage/homepage.component';
 import ShopPage from './pages/shop/shop.component';
-import Header from './components/header/header.component';
 import SignInAndSignUp from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
+import CheckoutPage from './pages/checkout/checkout.component'
+
+import Header from './components/header/header.component';
 import { auth, userProfileDocument } from './firebase/firebase.utils';
 import { setCurrentUser } from './redux/user/user-actions';
 //App.js will be changed to class component from now on to maintain the state who are all logged in and logged out
@@ -78,6 +80,7 @@ class App extends React.Component {
 
           {/* instead of component in Route use render which is a function  */}
           <Route exact path = '/signin' render = {() => this.props.currentUser ? ( <Redirect to = '/' /> ) : (<SignInAndSignUp />) }/>
+          <Route exact path = '/checkout' component = {CheckoutPage}/>
           {/* <Route  path = '/clothing' component = {Clothing}/>; */}
   
           {/* if there is a doubt between react router go to react-router-learning[E:code/React] */}
