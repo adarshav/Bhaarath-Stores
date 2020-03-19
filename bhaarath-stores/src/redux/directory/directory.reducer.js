@@ -6,19 +6,19 @@ const INITIAL_STATE = {
           imageUrl:'https://i.ibb.co/px2tCc3/jackets.png',
         //   imageUrl: 'https://ibb.co/kBCs9NT',
           id: 1,
-          linkUrl: 'clothing'
+          linkUrl: 'shop/hats'
         },
         {
           title: 'electronics',
           imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
           id: 2,
-          linkUrl: 'shop/eletronics'
+          linkUrl: 'shop/jackets'
         },
         {
           title: 'Mobiles',
           imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
           id: 3,
-          linkUrl: 'shop/mobiles'
+          linkUrl: 'shop/sneakers'
         },
         {
           title: 'shoes',
