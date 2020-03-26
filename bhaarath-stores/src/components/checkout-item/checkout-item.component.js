@@ -13,8 +13,8 @@ const CheckoutItem = ({ cartItem, clearItem, newAddItem, removeItem } ) => {
         </div>
         <span className = 'name'>{name}</span>
         <span className = 'quantity'>
-            {/* <div className = 'arrow' onClick = { () => removeItem(cartItem) }>&#10094;</div> */}
-            {
+            <div className = 'arrow' onClick = { () => removeItem(cartItem) }>&#10094;</div>
+            {/* {
                     quantity === 1 ? (
                         <div className = 'arrow' onClick = { () => removeItem(cartItem) }></div>
                     ) : (
@@ -29,7 +29,10 @@ const CheckoutItem = ({ cartItem, clearItem, newAddItem, removeItem } ) => {
                 ) : (
                     <div className = 'arrow' onClick = { () => newAddItem(cartItem) }>&#10095;</div>
                 )    
-            }
+            } */}
+                <span className = 'value'>{quantity}</span>
+
+                    <div className = 'arrow' onClick = { () => newAddItem(cartItem) }>&#10095;</div>
             </span>
         <span className = 'price'>{price}</span>
 
